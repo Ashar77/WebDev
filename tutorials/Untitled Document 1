@@ -1,0 +1,28 @@
+
+adding and deleting from an array:
+
+-) array.push()   ---> add an element at the end of an array
+
+-) array.pop()    ---> delete an element from the end 
+
+
+
+
+removing inserting and extracting elements:
+
+-) array.shift() ---> remove an element from the beginning of an array.
+
+-) array.unshift()  ---> add one or more elements to the beginning of an array
+
+
+The splice() method adds/removes items to/from an array, and returns the removed item(s):
+
+-) array.splice(index, howmany, item1, ....., itemX)
+
+   index = position to add/remove
+
+   howmany = number of items to remove from  given "index" position, if set to zero no items will be removed
+
+   item1, ..., itemX   =	Optional. The new item(s) to be added to the array
+
+
