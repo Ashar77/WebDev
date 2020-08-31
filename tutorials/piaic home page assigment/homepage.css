@@ -1,0 +1,38 @@
+.navbar{
+    border: 2px solid #024249;
+    width: auto;
+    height: 70px;
+    background-color: #024e57;
+}
+/*
+img{
+    width: 90px;
+    height: 120px;
+    margin-top: 10px;
+    margin-bottom: 55px;
+    position: relative;
+    bottom:  80px;
+    left: 15px;
+} */ 
+
+ul{
+    /*border: 2px solid rgb(0, 0, 0);*/
+    width: 800px;
+    text-align: center;
+    float: right;
+    position: relative;
+    bottom: 90px;
+    color: white;
+    /*border-color: blue;*/
+    text-align: right;
+    
+}
+
+li{
+    display: inline-block;
+    align-items: stretch;
+    font-size: 18px;
+    padding: 40px;
+    position: relative;
+    bottom:  7px;
+}

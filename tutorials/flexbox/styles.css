@@ -1,0 +1,60 @@
+h1{
+    background-color: blueviolet;
+    margin-bottom: 10px ;
+    margin-left: 700px;
+    width: 150px;
+    opacity: 0.5;
+    color: white;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 10%;
+}
+
+/*@media only screen and (max-width:600){
+
+} */
+
+.main{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    flex-wrap: wrap;    
+}
+
+
+
+
+
+
+
+
+.one,.two,.three{
+    border: 2px solid violet;
+    width: 250px;    
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+
+
+
+/*
+.two{
+    flex: 2;
+}
+
+.one{
+    flex: 1;
+
+}
+
+.three{
+    flex: 1;
+}*/
+
+
+
+
+
+
