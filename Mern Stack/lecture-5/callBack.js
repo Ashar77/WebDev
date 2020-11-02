@@ -7,10 +7,22 @@ function getPosts(){
     let output = '';
     setTimeout(()=> {
         posts.forEach(post => {
-            output += `<li>${posts.title}</li>`
+            output += `<li>${post.title}</li>`
             document.body.innerHTML = output;
         })
-    },2000); 
+    },1000); 
 }
 
-getPosts();
+
+
+
+
+function createPost(post,callback){
+        setTimeout(() => {
+            posts.push(post)
+            callback();
+        },2000);
+};
+
+createPost({title:'post three',body:'this is post three'},getPosts);
+
