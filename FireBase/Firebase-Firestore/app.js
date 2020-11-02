@@ -5,24 +5,27 @@ const form = document.querySelector('#add-cafe-form');
 //create element and render cafe
 
 function renderCafe(doc){
-
+  
     let li = document.createElement('li');
     let name =  document.createElement('span');
     let city = document.createElement('span');
     let cross = document.createElement('div');
 
 
-    li.setAttribute('data-id',doc.id)
+    li.setAttribute('data-id',doc.id)             
     name.textContent = doc.data().name;
     city.textContent = doc.data().city;
     cross.textContent = 'x';
-
-
+    
+                  
+                                                    
     li.appendChild(name);
     li.appendChild(city);
     li.appendChild(cross);
-    cafeList.appendChild(li);
+    cafeList.appendChild(li);  
 
+    //deleting data
+                                                                                                         
     cross.addEventListener('click',(e) => {
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('cafes').doc(id).delete();
@@ -35,27 +38,51 @@ function renderCafe(doc){
 
 
 // getting data
-db.collection('cafes').where('city','==','karachi').orderBy('name').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderCafe(doc);
-    })
-})
+//db.collection('cafes').where('city','==','karachi').orderBy('name').get().then((snapshot) => {
+  //  snapshot.docs.forEach(doc => {
+    //    renderCafe(doc);             
+    //}) 
+//})
+
+
 
 //saving data 
 form.addEventListener('submit',(e) => {
     e.preventDefault();
     db.collection('cafes').add({            // .add() takes object{} as a parameter this object represents document in firebase.
-        name:form.name.value,
+        name:form.name.value,  
         city:form.city.value
 
     })            
     form.name.value='';
     form.city.value='';
 
-
+ 
 });
 
 
-// deleting data 
-
+// real-time listner
  
+db.collection('cafes').orderBy('city').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if(change.type == 'added'){
+            renderCafe(change.doc);
+            
+        } else if(change.type == 'removed'){
+            let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
+            cafeList.removeChild(li);
+        }
+    })  
+})
+  
+ // updating data
+
+ /*
+db.collection('cafes').doc('kdsfhe37TF4e3r').update({
+    name:'shaun',
+    city:'nottingham'
+})
+
+.set overwrite the whole document
+*/
