@@ -23,10 +23,10 @@ const corollaGrande = new Car('Grande',1600,'black',2020);
 //console.log(corolla);
 //console.log(corollaGrande);
 
-corolla.getColor();
-corollaGrande.getColor();
+//corolla.getColor();
+//corollaGrande.getColor();
 
-corolla.getEngine();
+//corolla.getEngine();
 
 
 
@@ -41,19 +41,30 @@ class Dealer extends Car{
 
     static value = "some static value";
 
-
+    static getAddress(x){
+        console.log('the address is ',x.address);
+    }
+    
+    static changeColor(y,color){
+        y.color = color;
+        console.log('the color is now changed to ',y.color);
+    }
 
 }
 
 const dealer_1 = new Dealer('Haseeb motors','khi' , 'Gli',1300,'grey');
-console.log(dealer_1); 
+//console.log(dealer_1); 
 dealer_1.getColor()
-console.log(dealer_1.value)
-console.log(Dealer.value)
+//console.log(dealer_1.value)
+//console.log(Dealer.value)
 
 
-//static function 
+ 
 // static method for chaning color of car   
+                                              
 
+Dealer.getAddress(dealer_1);
 
+Dealer.changeColor(dealer_1,'yellow');
 
+console.log(dealer_1);
